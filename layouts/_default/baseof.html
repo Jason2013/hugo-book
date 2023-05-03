@@ -35,6 +35,44 @@
       {{ template "comments" . }} <!-- Comments block -->
 
       <label for="menu-control" class="hidden book-menu-overlay"></label>
+
+      <table border="1" width="100%">
+      <tr>
+          <th>Header</th>
+          <th>Value</th>
+      </tr>
+      <tr>
+          <td>.Kind</td>
+          <td>{{ .Kind }}</td>
+      </tr>
+      <tr>
+          <td>.Site.Params</td>
+          <td>
+          {{ with .Site.Params }}
+          <table width="100%">
+          <tr><th>Param</th><th>Value</th></tr>
+          {{ range $key, $val := . }}
+          <tr><td>{{ $key }}</td><td>{{ $val }}</td></tr>
+          {{ end }}
+          </table>
+          {{ end }}
+          </td>
+      </tr>
+      <tr>
+          <td>.Params</td>
+          <td>
+          {{ with .Params }}
+          <table width="100%">
+          <tr><th>Param</th><th>Value</th></tr>
+          {{ range $key, $val := . }}
+          <tr><td>{{ $key }}</td><td>{{ $val }}</td></tr>
+          {{ end }}
+          </table>
+          {{ end }}
+          </td>
+      </tr>
+      </table>
+
     </div>
 
     {{ if default true (default .Site.Params.BookToC .Params.BookToC) }}
