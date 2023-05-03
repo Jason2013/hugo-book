@@ -1,1 +1,22 @@
-{{ define "dummy" }}{{ end }}
+{{ define "main" }}
+  <article class="markdown">
+    {{- .Content -}}
+    {{ partial "doclist" .Pages }}
+  </article>
+{{ end }}
+
+{{ define "partials/doclist" }}
+{{/* .Pages */}}
+    {{ with . }}
+    <ul>
+        {{ range . }}
+        <li>
+        <a href="{{ .RelPermalink }}">{{ partial "docs/title" . }}</a>
+        {{ if .IsSection }}
+        {{ partial "doclist" .Pages }}
+        {{ end }}
+        </li>
+        {{ end }}
+    </ul>
+    {{ end }}
+{{ end }}
