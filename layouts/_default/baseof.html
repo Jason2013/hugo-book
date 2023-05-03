@@ -20,7 +20,11 @@
       </header>
 
       {{ partial "docs/inject/content-before" . }}
-      {{ template "main" . }} <!-- Page Content -->
+      {{ block "main" . }} <!-- Page Content -->
+        <article class="markdown">
+          {{- .Content -}}
+        </article>
+      {{ end }}
       {{ partial "docs/inject/content-after" . }}
 
       <footer class="book-footer">
@@ -70,12 +74,6 @@
     {{- partial "docs/comments" . -}}
   </div>
   {{ end }}
-{{ end }}
-
-{{ define "main" }}
-  <article class="markdown">
-    {{- .Content -}}
-  </article>
 {{ end }}
 
 {{ define "toc" }}
