@@ -5,7 +5,7 @@
     <li class="book-section-flat">
       <strong><a href="{{ .RelPermalink }}">{{ .Title | title }}</a></strong>
       <ul>
-      {{ range .Pages }}
+      {{ range sort .Pages ".Title" }}
         <li class="flex justify-between">
           <a href="{{ .RelPermalink }}">{{ .Title }}</a>
           <span>{{ len .Pages }}</span>
