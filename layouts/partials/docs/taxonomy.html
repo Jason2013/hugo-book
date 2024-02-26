@@ -1,19 +1,19 @@
 <nav>
-  <ul>
+  <div>
   {{ range $term, $_ := .Site.Taxonomies }}
     {{ with $.Site.GetPage (printf "/%s" $term | urlize) }}
-    <li class="book-section-flat">
+    <div class="book-section-flat">
       <strong><a href="{{ .RelPermalink }}">{{ .Title | title }}</a></strong>
-      <ul>
+      <div>
       {{ range sort .Pages ".Title" }}
-        <li class="flex justify-between">
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-          <span>{{ len .Pages }}</span>
-        </li>
+        <!--<li class="flex justify-between">-->
+          <span style="line-height:200%;margin-right:6px;white-space:nowrap"><a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <sup>{{ len .Pages }}</sup></span>
+        <!--</li>-->
       {{ end }}
-      </ul>
-    </li>
+      </div>
+    </div>
     {{ end }}
   {{ end }}
-  </ul>
+  </div>
 </nav>
