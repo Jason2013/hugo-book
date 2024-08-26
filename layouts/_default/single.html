@@ -1,1 +1,16 @@
-{{ define "dummy" }}{{ end }}
+{{ define "main" }}
+<article class="markdown">
+  <h1>
+    <a href="{{ .RelPermalink }}">{{ partial "docs/title.html" . }}</a>
+  </h1>
+  {{ partial "docs/post-meta" . }}
+  {{- .Content -}}
+</article>
+{{ end }}
+
+{{ define "toc" }}
+<hr />
+  {{ partial "docs/toc" . }}
+<hr />
+  {{ partial "docs/taxonomy" . }}
+{{ end }}
