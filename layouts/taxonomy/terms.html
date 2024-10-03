@@ -1,11 +1,11 @@
 {{ define "main" }}
 {{ .LinkTitle }}
 <hr />
-  {{ range (.Paginator 100).Pages.ByTitle }}
+  {{ range (.Paginator 10000).Pages.ByTitle }}
 
   <!--<article class="markdown book-post">TERMS2-->
   <span style="margin-right: 0.5em">
-      <a href="{{ .RelPermalink }}">{{ partial "docs/title.html" . }}</a>
+      <a href="{{ .RelPermalink }}">{{ partial "docs/title.html" . }}</a><sup>{{ len .Pages }}</sup>
   </span>
     <!--{{ partial "docs/post-meta" . }}
     <p>SUMMARY
