@@ -5,6 +5,9 @@
 
 <ul>
   {{ range $taxonomy_term, $taxonomy := .taxonomies }}
+    {{ if eq $taxonomy_term "stars" }}
+      {{ continue }} <!-- Skip the rest of the loop if taxonomy_term is "tags" -->
+    {{ end }}
   <li>
     {{ with $.page.Site.GetPage $taxonomy_term }}
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>

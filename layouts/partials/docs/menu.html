@@ -7,6 +7,9 @@
 
 {{ partial "docs/inject/menu-before" . }}
 {{ partial "docs/menu-hugo" .Site.Menus.before }}
+<ul><li>
+<a href="/zh/stars/true">Stars</a>
+</li></ul>
 {{ partial "docs/menu-taxonomies" (dict "page" . "taxonomies" .Site.Taxonomies) }}
 
 {{ if .Site.Params.BookMenuBundle }}
